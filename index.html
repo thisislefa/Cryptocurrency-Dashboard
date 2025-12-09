@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Market Insights Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="crypto-styles.css">
+    
+</head>
+<body>
+
+    <div class="loader-overlay" id="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <div class="crypto-container">
+        
+        <div class="mb-8">
+            <h1 class="text-2xl md:text-3xl font-bold mb-2">Market Overview</h1>
+            <p class="text-gray-400 text-sm">Real-time prices, 7-day trends, and market analysis.</p>
+        </div>
+
+        <div class="crypto-header-bar">
+            <div class="crypto-header-stat">
+                <span class="crypto-header-stat-label">Market Cap:</span>
+                <span class="crypto-header-stat-value" id="global-mcap">Loading...</span>
+            </div>
+            <div class="crypto-header-stat">
+                <span class="crypto-header-stat-label">24h Vol:</span>
+                <span class="crypto-header-stat-value" id="global-vol">Loading...</span>
+            </div>
+            <div class="crypto-header-stat">
+                <span class="crypto-header-stat-label">BTC Dom:</span>
+                <span class="crypto-header-stat-value" id="btc-dom">Loading...</span>
+            </div>
+            <div class="crypto-header-stat">
+                <span class="crypto-header-stat-label">Fear & Greed:</span>
+                <div style="display: flex; flex-direction: column; gap:2px;">
+                    <div class="crypto-fear-gauge">
+                        <div class="crypto-fear-needle" id="fg-needle" style="left: 50%;"></div>
+                    </div>
+                    <span class="crypto-header-stat-value" style="font-size: 10px;" id="fg-text">Neutral</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="crypto-cards-wrapper">
+            <h2 style="font-size: 30px; padding-bottom: 15px; font-weight: bold;">Trending Today</h2>
+            <button class="scroll-nav-btn scroll-prev" onclick="scrollCards(-1)">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            </button>
+            <button class="scroll-nav-btn scroll-next" onclick="scrollCards(1)">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+
+            <div class="crypto-cards-grid" id="cards-container">
+                </div>
+        </div>
+
+        <div class="crypto-controls">
+            <div class="filter-group">
+                <button class="filter-btn active" onclick="applyFilter('all', this)">All Coins</button>
+                <button class="filter-btn" onclick="applyFilter('gainers', this)">Top Gainers</button>
+                <button class="filter-btn" onclick="applyFilter('losers', this)">Top Losers</button>
+                <button class="filter-btn" onclick="applyFilter('popular', this)">Most Popular</button>
+                <button class="filter-btn" onclick="applyFilter('defi', this)">DeFi</button>
+                <button class="filter-btn" onclick="applyFilter('watchlist', this)">Watchlist <span id="watchlist-count" style="font-size:10px; background:#F0B90B; color:#000; padding:1px 4px; border-radius:4px; margin-left:4px;">0</span></button>
+            </div>
+
+            <div class="dropdown-group">
+                <select class="select-styled" id="currency-select" onchange="changeCurrency()">
+                    <option value="usd">USD ($)</option>
+                    <option value="eur">EUR (€)</option>
+                    <option value="gbp">GBP (£)</option>
+                </select>
+                <select class="select-styled" onchange="alert('Network filtering requires Premium API. Showing all networks.')">
+                    <option>All Networks</option>
+                    <option>Ethereum</option>
+                    <option>Solana</option>
+                    <option>BSC</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 50px;">#</th>
+                        <th>Asset</th>
+                        <th>Price</th>
+                        <th>24h Change</th>
+                        <th>24h Volume</th>
+                        <th>Market Cap</th>
+                        <th>7d Trend</th>
+                        <th style="text-align: right;">Action</th> <th>Watch</th>
+                    </tr>
+                </thead>
+                <tbody id="crypto-table-body">
+                    </tbody>
+            </table>
+        </div>
+        
+        <div style="text-align: center; margin-top: 30px; color: #4B5563; font-size: 12px;">
+            Data provided by CoinGecko API (Demo) • Updates every 60s
+        </div>
+
+    </div>
+
+    <script src="crypto.js"></script>
+</body>
+</html>
