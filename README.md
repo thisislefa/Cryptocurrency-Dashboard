@@ -5,7 +5,7 @@ A sophisticated, production-ready cryptocurrency dashboard providing real-time m
 
 ## Live Deployment
 
-[See Live Demo](https://thisislefa.github.io/Crypto-Market-Insights-Dashboard)
+[See Live Demo](https://thisislefa.github.io/Cryptocurrency-Dashboard)
 
 ---
 
@@ -253,4 +253,5 @@ const ws = new WebSocket('wss://stream.binance.com:9443/ws');
 ---
 
 **Crypto Market Insights Dashboard** — A professional-grade cryptocurrency analytics platform demonstrating advanced web development skills for fintech applications. Ideal for portfolio showcasing and technical interviews.
+
 
