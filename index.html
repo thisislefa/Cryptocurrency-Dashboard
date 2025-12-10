@@ -48,17 +48,20 @@
         </div>
 
         <div class="crypto-cards-wrapper">
-            <h2 style="font-size: 30px; padding-bottom: 15px; font-weight: bold;">Trending Today</h2>
-            <button class="scroll-nav-btn scroll-prev" onclick="scrollCards(-1)">
-                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-            </button>
-            <button class="scroll-nav-btn scroll-next" onclick="scrollCards(1)">
-                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-            </button>
-
+            <h1 class="text-2xl md:text-3xl font-bold mb-2">Trending Today</h1>
+            
             <div class="crypto-cards-grid" id="cards-container">
                 </div>
-        </div>
+            
+            <div class="scroll-nav-controls">
+                <button class="scroll-nav-btn scroll-prev" onclick="scrollCards(-1)">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+                <button class="scroll-nav-btn scroll-next" onclick="scrollCards(1)">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+            </div>
+            </div>
 
         <div class="crypto-controls">
             <div class="filter-group">

@@ -128,11 +128,23 @@
         .crypto-card-price { font-size: 16px; font-weight: 600; display: block; }
         .crypto-card-change { font-size: 14px; font-weight: 500; }
 
-        /* Mobile Scroll Buttons */
+        /* --- Scroll Button Controls (New Positioning) --- */
+
+        /* Container for scroll buttons (bottom right, mobile only) */
+        .scroll-nav-controls {
+            display: none; /* Hidden by default */
+            margin-top: 15px;
+            gap: 10px;
+            justify-content: flex-end; /* Align to the right */
+        }
+        @media (max-width: 1023px) {
+            .scroll-nav-controls {
+                display: flex; /* Show only on mobile/tablet */
+            }
+        }
+
+        /* Base button styles, without absolute positioning */
         .scroll-nav-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
             width: 36px;
             height: 36px;
             border-radius: 50%;
@@ -144,13 +156,7 @@
             justify-content: center;
             cursor: pointer;
             z-index: 10;
-            display: none; /* Hidden on desktop */
         }
-        @media (max-width: 1023px) {
-            .scroll-nav-btn { display: flex; }
-        }
-        .scroll-prev { left: -10px; }
-        .scroll-next { right: -10px; }
 
         /* --- FILTERS --- */
         .crypto-controls {
